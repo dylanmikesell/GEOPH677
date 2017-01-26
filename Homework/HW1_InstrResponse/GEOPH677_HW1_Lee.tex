@@ -1,0 +1,227 @@
+%% cv-us.tex
+%
+% Curriculum Vitae
+%
+% You may use use this document as a template to create your own CV
+% and you may redistribute the source code freely. No attribution is
+% required in any resulting documents, however, I do ask that you
+% please leave this notice and the above URL in the source code if you
+% choose to redistribute this file.
+%
+% $Id: cv-us.tex,v 1.23 2006/06/21 00:14:55 jrblevin Exp $
+%
+%%---------------------------------------------------------------------------
+%
+% Notes:
+%
+% * To create a new page use
+%   \newpage \opening
+%
+% * res.cls includes an \address{} command which can be used up to twice,
+%   but my address is too long for the format it uses.
+%
+% * Alternate documentclass statement to put headings in margin:
+%   \documentclass[margin,line,11pt,final]{res}
+%
+% * Can divide publication/presentation list into subsections by year:
+%   \section{\bf\small\hspace{8mm}2006}
+%
+%%----------------------------------------------------------------------------
+
+%\documentclass[overlapped,line,final]{res}
+\documentclass[overlapped,line,letterpaper]{res}
+%\documentclass[margin,line,11pt,final]{res}
+
+\usepackage{ifpdf}
+\usepackage{helvet}
+%\usepackage{times}
+%\usepackage{setspace}
+
+\ifpdf
+  \usepackage[pdftex]{hyperref}
+\else
+  \usepackage[hypertex]{hyperref}
+\fi
+
+\hypersetup{
+  letterpaper,
+  colorlinks,
+  urlcolor=blue,
+  pdfpagemode=none, 
+  pdftitle={title},
+  pdfauthor={author},
+  pdfcreator={},
+  pdfsubject={subject},
+%  pdfkeywords={economics microeconomics econometrics empirical urban
+%    game theory applied mathematics differential equations TANH method
+%    hyperbolic tangent centroid decomposition updating singular value
+%    decomposition linear algebra microeconomics linux unix german}
+}
+
+\def\Cplusplus{{\rm C\raise.5ex\hbox{\small ++}}}
+
+%%===========================================================================%%
+
+\pagestyle{myheadings}
+
+
+\begin{document}
+
+
+%---------------------------------------------------------------------------
+% Document Specific Customizations
+
+% Make lists without bullets and with no indentation
+\setlength{\leftmargini}{0em}
+\renewcommand{\labelitemi}{}
+
+% Use large bold font for printed name at top of pages
+\renewcommand{\namefont}{\large\textbf}
+
+
+\newcommand{\bME}{{\bf T. D. Mikesell}}
+
+
+
+%---------------------------------------------------------------------------
+
+\name{HW1: Instrument Responses and Deconvolution \hspace{3cm} Rebekah Lee}
+\begin{resume}
+\vspace{-.4cm}\hspace{-1.3cm}{\bf GEOPH677}
+\hspace{11.2cm}{\bf Jan 30 2017}
+
+\subsection{\hspace{-1.3cm}Part 1: An electromagnetic velocity sensor}
+
+\section{A) Explain the Biot-Savart law.}
+
+The Biot-Savart law is gives the magnetic field of a steady line current and is analogous to Coulomb's law in electrostatics:
+
+$${\bf B}({\bf r}) = \frac{\mu_0}{4\pi} \int \frac{{\bf I \times \hat{r'} }}{r'^2}dl = \frac{\mu_0}{4\pi}I \int \frac{d{\bf l \times \hat{r'} }}{r'^2}dl$$
+
+Where ${\bf I}$ is the electric current, ${\bf r'}$ is the vector from the source to the point ${\bf r}$, dl is an element along the wire in the direction of the current and $\mu_0 = 4\pi \times 10^{-7} N/A^2$ is the permeability of free space. The units for the magnetic field are newtons per ampere-meter (N/ (A m)) or teslas (T) and the integral is along the current path in the same direction as the flow.
+ 
+
+Source: Griffiths, David. Introduction to Electrodynamics. Fourth Edition
+
+\section{B) Explain Onsager's reciprocal theorem}
+
+Onsager's reciprocal theorem involves the reciprocity of coupled electrical and thermal systems. Lars Onsager's 1931 paper uses the following notation:
+
+
+$X_1$ and $X_2$ are driving electrical and thermodynamic forces, respectively and, if they were independent, could be written as:
+
+$$X_1 = R_1J_1$$
+$$X_2 = R_2J_2$$
+
+
+where $R_1$ and $R_2$ are the electrical resistivity and thermal resistance, respectively. $J_1$ and $J_2$ are electrical and thermal current.
+
+However, these systems are coupled since electrical current is not independent of the temperature. Therefore we can add in this dependency using cross coefficients $R_{12}$ and $R_{21}$ so that:
+
+$$X_1 = R_{11}J_1 + R_{12}J_2,$$ and
+
+$$X_2 = R_{21}J_1 + R_{22}J_2.$$ 
+
+My understanding of this is that the electrical force is equal to electrical resistance times current density plus the current modified scaled by a coeffecient that represents the coupling of the thermal heat on the electrical system.
+
+Similarly, the thermodynamic force is equal to the thermal resistance times thermal current density plus the electrical current density scaled by a coeffecient representing the coupling of the electrical system on the thermal. the reciprocity theorem states that these two coefficients are equal,
+
+$R_{12}=R_{21}$
+
+Sources:
+
+Onsager,Lars. Reciprocal Relations in Irreversible Processes. I. Physical Review, Vol 37. 1931
+
+\begin{verbatim}http://www.iue.tuwien.ac.at/phd/holzer/node24.html\end{verbatim} 
+\section{C)How would you compute $l$ given a coil with radius $r$ and number of coils $n$?}
+
+
+$l = 2\pi rn $
+
+\section{D) Derive equation 12.49}
+
+First list the forces by looking at Figure 12.15. 
+\begin{enumerate}
+	\item Force of gravity on the mass
+	\item Force from the spring
+	\item Magnetic force 
+\end{enumerate}
+
+So using Newton, we have:
+$F = F_{gravity} -F_{spring} - F_{mag}$
+
+We saw in class that the force from the spring $(K(z-l_0))$ and the force of gravity ($Mg =k(z-l_0) $) combine and can be written as kz(t). We also saw that there are two sources of acceleration, from the seismometer and from the ground, so that we have:
+
+\begin{equation}
+M\frac{\partial^2}{\partial t^2}(z(t)+u(t))=-kz(t)-F_{mag}
+
+\end{equation}
+
+Rearranging and dividing by M:
+
+\begin{equation}
+z'' +u'' = -\omega{w}_0^2z -\frac{1}{M}F{mag}$ 
+\label{eqn:forces}
+\end{equation},
+
+where $w_o^2=\frac{k}{m}.
+
+
+Aki and Richards give the magnetic force (from the Lorentz force law) as:
+
+$F=IlB$,
+
+where I is the current, l is the length of the wire and B is the flux density. The mechanical power is the rate that work is done so they multiply both sides by the velocity of the moving mass, or z'. so that : 
+
+$Fz' = IlBz'$
+
+Then they say that the mechanical power must be consumed by the resistance and since electrical power is equal to $P = VI$ by ohm's law they obtain
+
+ $V = lBz'$.
+
+ Now they define lB as G so $V=Gz'$. Using ohm's law and the total resistance equal to $R_0 + R$, $I(R_0 +R) = Gz'$ and simple division yields
+
+\begin{equation}
+	 I = \frac{Gz'}{R_0 +R}.
+	 \label{eqn1}
+\end{equation}
+
+Now $F = GI$ and we can substitute in equation \ref{eqn1} to get
+
+$F = \frac{G^2z'}{R_0+R}$.
+
+Now we can substitute this back into equation \ref{eqn:forces} so that:
+
+\begin{equation}
+	z'' + u'' = -\omega_0^2 z - \frac{G^2}{R_0+R}\frac{z'}{M}
+\end{equation}
+%---------------------------------------------------------------------
+	
+or
+
+\begin{equation}
+	z'' + \omega_0^2 z  = -u'' - \frac{G^2}{R_0+R}\frac{z'}{M}.
+\end{equation}
+
+In class we saw that for a similar system with a dashpot instead of a magnet we get: 
+
+
+\begin{equation}
+	z'' + \omega_0^2 z  = -u'' - 2\epsilon z'.
+\end{equation}
+
+and comparing the two equations:
+
+\begin{equation}
+	2\epsilon = \frac{G^2}{R_0+R}\frac{1}{M}
+\end{equation}
+
+This equation relates the two dampening terms in the equation of motion for both systems. If there is also mechanical attenuation, $\epsilon_{0}$ then
+
+\begin{equation}
+	\epsilon = \epsilon_0 + \frac{G^2}{2(R_0+R)}\frac{1}{M}
+\end{equation}
+%---------------------------------------------------------------------
+
+\end{resume}
+\end{document}
