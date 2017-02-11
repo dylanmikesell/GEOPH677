@@ -94,7 +94,7 @@
 
 \section{A) Explain the Biot-Savart law.}
 
-The Biot-Savart law is gives the magnetic field of a steady line current and is analogous to Coulomb's law in electrostatics:
+The Biot-Savart law gives the magnetic field of a steady line current and is analogous to Coulomb's law in electrostatics:
 
 $${\bf B}({\bf r}) = \frac{\mu_0}{4\pi} \int \frac{{\bf I \times \hat{r'} }}{r'^2}dl = \frac{\mu_0}{4\pi}I \int \frac{d{\bf l \times \hat{r'} }}{r'^2}dl$$
 
@@ -122,9 +122,9 @@ $$X_1 = R_{11}J_1 + R_{12}J_2,$$ and
 
 $$X_2 = R_{21}J_1 + R_{22}J_2.$$ 
 
-My understanding of this is that the electrical force is equal to electrical resistance times current density plus the current modified scaled by a coeffecient that represents the coupling of the thermal heat on the electrical system.
+My understanding of this is that the electrical force is equal to electrical resistance times current density plus the current  scaled by a coeffecient that represents the coupling of the thermal heat on the electrical system.
 
-Similarly, the thermodynamic force is equal to the thermal resistance times thermal current density plus the electrical current density scaled by a coeffecient representing the coupling of the electrical system on the thermal. the reciprocity theorem states that these two coefficients are equal,
+Similarly, the thermodynamic force is equal to the thermal resistance times thermal current density plus the electrical current density scaled by a coeffecient representing the coupling of the electrical system on the thermal. The reciprocity theorem states that these two coefficients are equal,
 
 $R_{12}=R_{21}$
 
@@ -153,18 +153,16 @@ $F = F_{gravity} -F_{spring} - F_{mag}$
 We saw in class that the force from the spring $(K(z-l_0))$ and the force of gravity ($Mg =k(z-l_0) $) combine and can be written as kz(t). We also saw that there are two sources of acceleration, from the seismometer and from the ground, so that we have:
 
 \begin{equation}
-M\frac{\partial^2}{\partial t^2}(z(t)+u(t))=-kz(t)-F_{mag}
-
+$$$$z'' +u'' = -\omega_0^2z -\frac{1}{M}F{mag}. $$$$
 \end{equation}
 
 Rearranging and dividing by M:
 
 \begin{equation}
-z'' +u'' = -\omega{w}_0^2z -\frac{1}{M}F{mag}$ 
-\label{eqn:forces}
-\end{equation},
+$$$$z'' +u'' = -\omega_0^2z -\frac{1}{M}F{mag}, $$$$
+\end{equation}
 
-where $w_o^2=\frac{k}{m}.
+where $w_o^2=\frac{k}{m}$.
 
 
 Aki and Richards give the magnetic force (from the Lorentz force law) as:
@@ -175,22 +173,22 @@ where I is the current, l is the length of the wire and B is the flux density. T
 
 $Fz' = IlBz'$
 
-Then they say that the mechanical power must be consumed by the resistance and since electrical power is equal to $P = VI$ by ohm's law they obtain
+Then they say that the mechanical power must be consumed by the resistance and since electrical power is equal to $P = VI$ (by Ohm's law) they obtain
 
  $V = lBz'$.
 
- Now they define lB as G so $V=Gz'$. Using ohm's law and the total resistance equal to $R_0 + R$, $I(R_0 +R) = Gz'$ and simple division yields
+ Now they define lB as G so $V=Gz'$. Using Ohm's law and the total resistance equal to $R_0 + R$, $I(R_0 +R) = Gz'$ and simple division yields
 
 \begin{equation}
 	 I = \frac{Gz'}{R_0 +R}.
 	 \label{eqn1}
 \end{equation}
 
-Now $F = GI$ and we can substitute in equation \ref{eqn1} to get
+Now $F = GI$ and we can substitute in equation (3) to get
 
-$F = \frac{G^2z'}{R_0+R}$.
+$F = \frac{G^2z'}{R_0+R}$,
 
-Now we can substitute this back into equation \ref{eqn:forces} so that:
+and in turn substitute this back into equation (2) so that:
 
 \begin{equation}
 	z'' + u'' = -\omega_0^2 z - \frac{G^2}{R_0+R}\frac{z'}{M}
@@ -219,9 +217,16 @@ and comparing the two equations:
 This equation relates the two dampening terms in the equation of motion for both systems. If there is also mechanical attenuation, $\epsilon_{0}$ then
 
 \begin{equation}
-	\epsilon = \epsilon_0 + \frac{G^2}{2(R_0+R)}\frac{1}{M}
+	\epsilon = \epsilon_0 + \frac{G^2}{2(R_0+R)}\frac{1}{M}.
 \end{equation}
 %---------------------------------------------------------------------
 
+\section{E) When was the electromagnetic sensor introduced in seismology and who introduced it?}
+
+The electromagnetic sensor was introduced in 1914 by Russian scientist Galitzin.
+%--------------------------------------------------------------------------------------------
+
+
 \end{resume}
 \end{document}
+%----------------------------------------------------------------------
