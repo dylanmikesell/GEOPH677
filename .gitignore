@@ -1,0 +1,5 @@
+Homework/html/
+Homework/*/html
+Homework/*/*.log
+*.gz
+*.m~
